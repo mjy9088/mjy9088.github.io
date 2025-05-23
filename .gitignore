@@ -1,9 +1,9 @@
 # node.js
 /node_modules
-/package-lock.json
 
 # build
 /tsconfig.tsbuildinfo
+/out
 
 # env
 .env*
