@@ -11,8 +11,8 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useMobile } from "@/hooks/useMobile";
 import { Laptop, Menu, Moon, Sun } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { A } from "./A";
 
 export function Header() {
   const pathname = usePathname();
@@ -20,12 +20,10 @@ export function Header() {
   const { theme, setTheme } = useTheme();
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Resume", href: "/resume" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    { name: "홈", href: "/" },
+    { name: "이력서", href: "/resume" },
+    { name: "블로그", href: "https://mjy-blog.github.io", external: true },
+    { name: "연락처", href: "/contact" },
   ];
 
   const ThemeSelector = () => (
@@ -71,9 +69,9 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" className="font-bold text-xl">
-            John Doe
-          </Link>
+          <A href="/" className="font-bold text-xl">
+            mjy9088
+          </A>
         </div>
 
         <div className="flex items-center gap-4">
@@ -90,7 +88,7 @@ export function Header() {
               <SheetContent side="right" className="w-[240px] sm:w-[300px]">
                 <nav className="flex flex-col gap-4 mt-8">
                   {navigation.map((item) => (
-                    <Link
+                    <A
                       key={item.name}
                       href={item.href}
                       className={`text-lg font-medium transition-colors hover:text-primary ${
@@ -100,7 +98,7 @@ export function Header() {
                       }`}
                     >
                       {item.name}
-                    </Link>
+                    </A>
                   ))}
                 </nav>
               </SheetContent>
@@ -108,7 +106,7 @@ export function Header() {
           ) : (
             <nav className="flex gap-6">
               {navigation.map((item) => (
-                <Link
+                <A
                   key={item.name}
                   href={item.href}
                   className={`font-medium transition-colors hover:text-primary ${
@@ -118,7 +116,7 @@ export function Header() {
                   }`}
                 >
                   {item.name}
-                </Link>
+                </A>
               ))}
             </nav>
           )}
